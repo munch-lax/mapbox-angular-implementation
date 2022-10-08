@@ -1,0 +1,32 @@
+<ion-grid>
+  <ion-row>
+    <ion-col id="map" size="5"> </ion-col>
+    <ion-col *ngIf="showList">
+      <ul>
+        <li>
+          <ion-item>
+            <ion-label>Default Label</ion-label>
+            <ion-input
+              placeholder="text for pin"
+              [(ngModel)]="message"
+            ></ion-input>
+          </ion-item>
+        </li>
+        <li *ngFor="let data of features">
+          <ion-row>
+            <ion-col style="cursor: pointer" (click)="flyTo(data)">{{
+              data?.properties?.message
+            }}</ion-col>
+            <ion-col style="cursor: pointer" (click)="editPin(data)">
+              edit</ion-col
+            >
+            <ion-col style="cursor: pointer" (click)="deletePin(data)">
+              delete</ion-col
+            >
+          </ion-row>
+        </li>
+      </ul>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<!-- <div id="map"></div> -->
